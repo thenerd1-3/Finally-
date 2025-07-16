@@ -24,7 +24,7 @@ html,body{
 }
 .img{
   width:100%;
-  height:200px;
+  height:170px;
   object-fit: cover;
 }
 .intro{
@@ -38,6 +38,7 @@ html,body{
 .main-grid{
     display:grid;
     grid-template-columns: 1fr 1fr;
+    column-gap:5px;
 }
 .home-button-div{
     width:55px;
