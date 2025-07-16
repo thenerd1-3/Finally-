@@ -33,9 +33,10 @@ html,body{
 .name-project{
   font-weight: bold;
 }
-. main-grid{
+.main-grid{
     display:grid;
     grid-template-columns: 1fr 1fr;
+}
 .home-button-div{
     width:55px;
     background-color:rgba(250,150,61,0.7);
