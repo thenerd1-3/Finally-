@@ -8,6 +8,22 @@
     </head>
     
     <body>
+      <div id="customAlert">
+        <p class="player">
+          
+        </p>
+        <p class="computer">
+          
+        </p>
+        <p class="result">
+          
+        </p>
+        <button class="continue" onclick="
+        closeAlert();
+        ">
+          continue
+        </button>
+      </div>
     <div class="intro-div">
        <p class="intro">
        Rock Paper Scissors 
@@ -34,18 +50,10 @@
     </div> 
     <div>
         <button onclick="
-    const random = Math.random();
-    let computer = random < 1/3 ? 
-    'rock' : random < 2/3 ?
-    'paper' :
-    'scissors';
-    
-    let result = computer === 'rock' ? 
-    'draw' : computer === 'paper' ?
-    'you lose' : 'you win';
-    
-    alert(`Computer picked ${computer},
- Result: ${result}`)
+    const player = 'rock';
+    const computer =
+    pickComputer();
+    playGame(player,computer)
     ">
         Rock
     </button>
@@ -60,18 +68,10 @@
     </div> 
     <div>
        <button onclick="
-    const random = Math.random();
-    let computer = random < 1/3 ? 
-    'rock' : random < 2/3 ?
-    'paper' :
-    'scissors';
-    
-    let result = computer === 'rock' ? 
-    'you win' : computer === 'paper' ?
-    'draw' : 'you lose';
-    
-    alert(`Computer picked ${computer},
- Result: ${result}`)
+    const player = 'paper';
+    const computer =
+    pickComputer();
+    playGame(player,computer)
     ">
         Paper
     </button> 
@@ -88,18 +88,10 @@
     </div>
       <div>
        <button onclick="
-    const random = Math.random();
-    let computer = random < 1/3 ? 
-    'rock' : random < 2/3 ?
-    'paper' :
-    'scissors';
-    
-    let result = computer === 'rock' ? 
-    'you lose' : computer === 'paper' ?
-    'you win' : 'draw';
-    
-    alert(`Computer picked ${computer},
- Result: ${result}`)
+    const player = 'scissors';
+    const computer =
+    pickComputer();
+    playGame(player,computer)
     ">
         Scissors
     </button> 
@@ -120,5 +112,44 @@
     </p>
         
     </body>
+    
+    <script>
+      function showAlert(){
+        document.getElementById('customAlert').style.display='block'
+      }
+      function closeAlert(){
+        document.getElementById('customAlert').style.display='none'
+      }
+      
+      function playGame (player,computer){
+        let result = player === computer ? 'Draw' : player === 'rock' &&
+        computer === 'scissors' || 
+        player === 'paper' &&
+        computer === 'rock' || 
+        player === 'scissors' &&
+        computer === 'rock' ? 
+        'You Win!!':'You Lose!!';
         
-</html>
+      document.querySelector('.player')
+        .innerText=`You picked ${player}`;
+        
+        document.querySelector('.computer')
+        .innerText=`Computer picked ${computer}`;
+        
+        document.querySelector('.result')
+        .innerText=`Result: ${result}`;
+        
+        showAlert();
+        
+      }
+      function pickComputer(){
+        const random = Math.random();
+        let computer = random < 1/3 ?
+        'rock' : random < 2/3 ?
+        'paper': 'scissors';
+        
+        return computer;
+      }
+    </script>
+        
+    </html>
